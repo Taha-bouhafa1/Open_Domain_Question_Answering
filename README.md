@@ -60,25 +60,25 @@ The React frontend provides the chat UI, authentication and conversation managem
 
 ### Database
 - SQL database with schema for document storage and retrieval
-
-## Project Structure
-
-```
-ODQA/
 ├── frontend/                 # React application
 │   ├── public/              # public assets (put screenshots here)
 │   │   ├── bert_reader.png
 │   │   ├── odqa.png
-│   │   └── home_page.png
+	<img src="https://raw.githubusercontent.com/Taha-bouhafa1/Open_Domain_Question_Answering/main/home_page.png" alt="Web App Home Page" width="800" />
 │   ├── src/
 │   │   ├── components/      # React components (Auth, Chat, Sidebar, Header)
 │   │   ├── hooks/           # Custom React hooks
-│   │   ├── services/        # API and Supabase services
+	<img src="https://raw.githubusercontent.com/Taha-bouhafa1/Open_Domain_Question_Answering/main/odqa.png" alt="ODQA System" width="800" />
 │   │   └── App.jsx
 │   └── vite.config.js
 ├── backend/                  # Python backend
-│   ├── main.py               # Flask/FastAPI application
+	<img src="https://raw.githubusercontent.com/Taha-bouhafa1/Open_Domain_Question_Answering/main/bert_reader.png" alt="BERT Reader (LoRA)" width="800" />
 │   ├── adapter_model.safetensors  # LoRA-adapted BERT reader
+## Illustrations (ordered)
+
+1. ODQA system overview — https://raw.githubusercontent.com/Taha-bouhafa1/Open_Domain_Question_Answering/main/odqa.png
+2. Web app home page — https://raw.githubusercontent.com/Taha-bouhafa1/Open_Domain_Question_Answering/main/home_page.png
+3. BERT reader architecture — https://raw.githubusercontent.com/Taha-bouhafa1/Open_Domain_Question_Answering/main/bert_reader.png
 │   ├── tokenizer.json
 │   └── requirements.txt
 ├── database/
