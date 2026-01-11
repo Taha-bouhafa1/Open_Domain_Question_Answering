@@ -173,7 +173,7 @@ Training and evaluation notebooks are in `Entrainement-validation-ODQA/`.
 ## Citation
 
 ```bibtex
-@misc{bouhafa2025unet3plus,
+@misc{bouhafa2025odqa,
 	author       = {Taha Bouhafa},
 	title        = {Open Domain Question Answering (ODQA)},
 	year         = {2025},
