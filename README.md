@@ -1,159 +1,90 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-<h1 align="center">
-	ODQA - Open Domain Question Answering
-</h1>
+# ODQA — Open Domain Question Answering
 
 <p align="center">
 	<img src="https://img.shields.io/badge/Status-Active-brightgreen" />
 	<img src="https://img.shields.io/badge/Python-3.8%2B-blue" />
+	<img src="https://img.shields.io/badge/PyTorch-2.1.2-red" />
 	<img src="https://img.shields.io/badge/HuggingFace-Transformers-orange" />
 	<img src="https://img.shields.io/badge/Frontend-React-blueviolet" />
 	<img src="https://img.shields.io/badge/License-MIT-grey" />
 </p>
 
-An intelligent question-answering system that retrieves relevant documents (for example, Wikipedia) and generates accurate answers from those sources. This project combines Dense Passage Retrieval (DPR) for fast, accurate retrieval with a LoRA-fine-tuned BERT reader (`bert_reader`) for answer extraction.
+Short professional README for developers and contributors. This file documents how to run and extend the ODQA system.
 
-## Project Overview
+## Overview
 
-ODQA is a full-stack application that allows users to ask questions and receive contextual answers powered by:
+ODQA answers natural-language questions by retrieving relevant passages from a large document collection (e.g., Wikipedia) and extracting concise answers via a reader model. The pipeline is:
 
-- **DPR (Dense Passage Retrieval)** for candidate passage retrieval
-- **BERT reader fine-tuned with LoRA** (`bert_reader`) for answer extraction
-- **React frontend** with chat-like UI and Supabase authentication
-- **Python backend** (FastAPI/Flask) serving the model and retrieval APIs
+- Retriever — DPR (Dense Passage Retrieval) to produce candidate passages
+- Reader — LoRA-fine-tuned BERT (`bert_reader`) to extract answer spans
 
-<p align="center">
-	<img src="https://raw.githubusercontent.com/Taha-bouhafa1/Open_Domain_Question_Answering/main/odqa.png" alt="ODQA System screenshot" width="900" />
-	<br/>
-	<em>System overview: retrieval + reader pipeline</em>
-</p>
+Illustration: ODQA system overview — https://raw.githubusercontent.com/Taha-bouhafa1/Open_Domain_Question_Answering/main/odqa.png
 
-### BERT Reader (LoRA)
+## Components
 
-The BERT reader is fine-tuned using LoRA adapters to efficiently adapt the base `bert-base-uncased` model without full-weight updates. It performs answer extraction over retrieved passages.
+### Retriever (DPR + FAISS)
 
-<p align="center">
-	<img src="https://raw.githubusercontent.com/Taha-bouhafa1/Open_Domain_Question_Answering/main/bert_reader.png" alt="BERT Reader architecture" width="700" />
-</p>
+- Dense bi-encoder (facebook/dpr) to encode queries and passages
+- FAISS for efficient nearest-neighbor search over passage embeddings
 
-### Web App (Home Page)
+### Reader (BERT + LoRA)
 
-The React frontend provides the chat UI, authentication and conversation management. Example home page:
+- Base model: `bert-base-uncased` with PEFT/LoRA adapters applied
+- Responsible for span extraction and confidence scoring
 
-<p align="center">
-	<img src="https://raw.githubusercontent.com/Taha-bouhafa1/Open_Domain_Question_Answering/main/home_page.png" alt="Web App Home Page" width="700" />
-</p>
+Illustration: BERT reader architecture — https://raw.githubusercontent.com/Taha-bouhafa1/Open_Domain_Question_Answering/main/bert_reader.png
 
-## Tech Stack
+### Frontend (Web App)
 
-### Frontend
-- React 18+ with Vite
+- React + Vite for the UI
 - Tailwind CSS for styling
-- Supabase for authentication and backend integration
-- ESLint for code quality
+- Supabase for authentication and (optional) storage
 
-### Backend
-# ODQA - Open Domain Question Answering
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Status-Active-brightgreen" />
-  <img src="https://img.shields.io/badge/Python-3.8%2B-blue" />
-  <img src="https://img.shields.io/badge/PyTorch-2.1.2-red" />
-  <img src="https://img.shields.io/badge/HuggingFace-Transformers-orange" />
-  <img src="https://img.shields.io/badge/Frontend-React-blueviolet" />
-  <img src="https://img.shields.io/badge/License-MIT-grey" />
-</p>
-
-An intelligent question-answering system that retrieves relevant documents (for example, Wikipedia) and generates concise, contextual answers. The system combines Dense Passage Retrieval (DPR) for retrieval with a LoRA-fine-tuned BERT reader (`bert_reader`) for answer extraction.
-
-## Project Overview
-
-ODQA is a full‑stack application that lets users ask natural-language questions and receive answers sourced from a large document collection (e.g., Wikipedia).
-
-- DPR (Dense Passage Retrieval) for candidate passage retrieval
-- BERT reader fine-tuned with LoRA for answer extraction
-- React frontend with chat UI and Supabase authentication
-- Python backend (FastAPI) serving retrieval and reader APIs
-
-Illustration (1): ODQA system overview — https://raw.githubusercontent.com/Taha-bouhafa1/Open_Domain_Question_Answering/main/odqa.png
-
----
-
-### BERT Reader (LoRA)
-
-The reader uses `bert-base-uncased` with LoRA adapters (PEFT) applied to adapt the model efficiently without full fine-tuning. It scores and extracts short-span answers from retrieved passages.
-
-Illustration (2): BERT reader architecture — https://raw.githubusercontent.com/Taha-bouhafa1/Open_Domain_Question_Answering/main/bert_reader.png
-
----
-
-### Web App (Home Page)
-
-The React frontend provides the chat interface, conversation history, and links to saved results. It calls backend endpoints for retrieval and reading.
-
-Illustration (3): Web app home page — https://raw.githubusercontent.com/Taha-bouhafa1/Open_Domain_Question_Answering/main/home_page.png
-
----
+Illustration: Web app home page — https://raw.githubusercontent.com/Taha-bouhafa1/Open_Domain_Question_Answering/main/home_page.png
 
 ## Tech Stack
 
-### Frontend
-- React 18+ with Vite
-- Tailwind CSS
-- Supabase (auth + storage)
+- Frontend: React 18+, Vite, Tailwind CSS
+- Backend: FastAPI, Uvicorn
+- ML: PyTorch (torch==2.1.2), Hugging Face Transformers, PEFT (LoRA), sentencepiece
+- Vector search: FAISS
+- Utilities: numpy, safetensors, accelerate
 
-### Backend / ML
-- Python 3.8+
-- FastAPI + Uvicorn
-- PyTorch (torch==2.1.2)
-- Hugging Face Transformers
-- PEFT / LoRA adapters
-- DPR retriever (facebook/dpr) + FAISS for vector search
+See `backend/requirements.txt` for exact versions.
 
-### Database
-- SQL schema in `database/schema.sql`
-
-## Project Structure
+## Project Layout
 
 ```
 ODQA/
-├── frontend/                 # React application
-├── backend/                  # FastAPI + model code
-├── database/                 # SQL schema
-└── Entrainement-validation-ODQA/  # Training & evaluation notebooks
+├── frontend/                 # React app (src, public)
+├── backend/                  # FastAPI app, model loading, retriever
+├── database/                 # schema.sql
+└── Entrainement-validation-ODQA/  # notebooks for training/eval
 ```
 
-## Getting Started
+## Quickstart
 
-### Backend
+Backend (Linux/macOS):
 
 ```bash
 cd backend
-python -m venv venv
-# Windows
-venv\\Scripts\\activate
-# Unix
-# source venv/bin/activate
+python -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
 python main.py
 ```
 
-### Frontend
+Backend (Windows PowerShell):
+
+```powershell
+cd backend
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+python main.py
+```
+
+Frontend:
 
 ```bash
 cd frontend
@@ -161,25 +92,45 @@ npm install
 npm run dev
 ```
 
-## Features
+Environment variables used by the services (example):
 
-- DPR-based retrieval of candidate passages
-- LoRA-fine-tuned BERT reader for answer extraction
-- Conversation history and user auth via Supabase
+- `INDEX_PATH`, `PASSAGES_PATH`, `LORA_FOLDER`, `API_HOST`, `API_PORT`, `CORS_ORIGINS`, `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`, `VITE_API_URL`
+
+## API (summary)
+
+- `GET /` — health/status
+- `POST /api/ask` — submit question (body: `question`, `k`, optional `conversation_id`, `user_id`) → returns best answer + confidence
+- Conversation and message endpoints under `/api/conversations` and `/api/messages` (see `backend/main.py`)
+
+## Model & Data
+
+- Model weights: `adapter_model.safetensors` (LoRA-adapted reader) in `backend/`
+- Tokenizers: `tokenizer.json` / `tokenizer_config.json`
+- Passages index: FAISS index file (default `passage.index`) and `passages.pkl`
+
+Training and evaluation notebooks are in `Entrainement-validation-ODQA/`.
+
+## Contributing
+
+1. Fork the repo
+2. Create branch `feature/your-feature`
+3. Add tests / update notebooks
+4. Open a Pull Request
 
 ## Citation
 
-```bash
+```bibtex
 @misc{bouhafa2025unet3plus,
-  author       = {Taha Bouhafa},
-  title        = {Open Domain Question Answering (ODQA)},
-  year         = {2025},
-  howpublished = {\\url{https://github.com/Taha-bouhafa1/Open_Domain_Question_Answering}},
-  note         = {GitHub repository}
+	author       = {Taha Bouhafa},
+	title        = {Open Domain Question Answering (ODQA)},
+	year         = {2025},
+	howpublished = {\url{https://github.com/Taha-bouhafa1/Open_Domain_Question_Answering}},
+	note         = {GitHub repository}
 }
 ```
 
 ## License
 
-This project is licensed under the MIT License - see LICENSE file for details.
+MIT — see `LICENSE`
+
 
