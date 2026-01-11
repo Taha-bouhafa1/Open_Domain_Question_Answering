@@ -22,7 +22,7 @@ ODQA is a full-stack application that allows users to ask questions and receive 
 - **Python backend** (FastAPI/Flask) serving the model and retrieval APIs
 
 <p align="center">
-	<img src="./frontend/public/odqa.png" alt="ODQA System screenshot" width="900" />
+	<img src="https://raw.githubusercontent.com/Taha-bouhafa1/Open_Domain_Question_Answering/main/odqa.png" alt="ODQA System screenshot" width="900" />
 	<br/>
 	<em>System overview: retrieval + reader pipeline</em>
 </p>
@@ -32,7 +32,7 @@ ODQA is a full-stack application that allows users to ask questions and receive 
 The BERT reader is fine-tuned using LoRA adapters to efficiently adapt the base `bert-base-uncased` model without full-weight updates. It performs answer extraction over retrieved passages.
 
 <p align="center">
-	<img src="./frontend/public/bert_reader.png" alt="BERT Reader architecture" width="700" />
+	<img src="https://raw.githubusercontent.com/Taha-bouhafa1/Open_Domain_Question_Answering/main/bert_reader.png" alt="BERT Reader architecture" width="700" />
 </p>
 
 ### Web App (Home Page)
@@ -40,7 +40,7 @@ The BERT reader is fine-tuned using LoRA adapters to efficiently adapt the base 
 The React frontend provides the chat UI, authentication and conversation management. Example home page:
 
 <p align="center">
-	<img src="./frontend/public/home_page.png" alt="Web App Home Page" width="700" />
+	<img src="https://raw.githubusercontent.com/Taha-bouhafa1/Open_Domain_Question_Answering/main/home_page.png" alt="Web App Home Page" width="700" />
 </p>
 
 ## Tech Stack
