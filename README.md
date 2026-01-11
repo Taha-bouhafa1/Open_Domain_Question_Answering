@@ -27,6 +27,10 @@ ODQA answers natural-language questions by retrieving relevant passages from a l
 - Dense bi-encoder (facebook/dpr) to encode queries and passages
 - FAISS for efficient nearest-neighbor search over passage embeddings
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Taha-bouhafa1/Open_Domain_Question_Answering/main/dpr.png" alt="DPR Retriever" width="700" />
+</p>
+
 ### Reader (BERT + LoRA)
 
 - Base model: `bert-base-uncased` with PEFT/LoRA adapters applied
