@@ -18,7 +18,9 @@ ODQA answers natural-language questions by retrieving relevant passages from a l
 - Retriever — DPR (Dense Passage Retrieval) to produce candidate passages
 - Reader — LoRA-fine-tuned BERT (`bert_reader`) to extract answer spans
 
-Illustration: ODQA system overview — https://raw.githubusercontent.com/Taha-bouhafa1/Open_Domain_Question_Answering/main/odqa.png
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Taha-bouhafa1/Open_Domain_Question_Answering/main/odqa.png" alt="ODQA System Overview" width="800" />
+</p>
 
 ## Components
 
@@ -32,7 +34,9 @@ Illustration: ODQA system overview — https://raw.githubusercontent.com/Taha-bo
 - Base model: `bert-base-uncased` with PEFT/LoRA adapters applied
 - Responsible for span extraction and confidence scoring
 
-Illustration: BERT reader architecture — https://raw.githubusercontent.com/Taha-bouhafa1/Open_Domain_Question_Answering/main/bert_reader.png
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Taha-bouhafa1/Open_Domain_Question_Answering/main/bert_reader.png" alt="BERT Reader Architecture" width="700" />
+</p>
 
 ### Frontend (Web App)
 
@@ -40,7 +44,9 @@ Illustration: BERT reader architecture — https://raw.githubusercontent.com/Tah
 - Tailwind CSS for styling
 - Supabase for authentication and (optional) storage
 
-Illustration: Web app home page — https://raw.githubusercontent.com/Taha-bouhafa1/Open_Domain_Question_Answering/main/home_page.png
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Taha-bouhafa1/Open_Domain_Question_Answering/main/home_page.png" alt="Web App Home Page" width="700" />
+</p>
 
 ## Tech Stack
 
