@@ -9,8 +9,6 @@
 	<img src="https://img.shields.io/badge/License-MIT-grey" />
 </p>
 
-Short professional README for developers and contributors. This file documents how to run and extend the ODQA system.
-
 ## Overview
 
 ODQA answers natural-language questions by retrieving relevant passages from a large document collection (e.g., Wikipedia) and extracting concise answers via a reader model. The pipeline is:
@@ -62,11 +60,56 @@ See `backend/requirements.txt` for exact versions.
 
 ```
 ODQA/
-├── frontend/                 # React app (src, public)
-├── backend/                  # FastAPI app, model loading, retriever
-├── database/                 # schema.sql
-└── Entrainement-validation-ODQA/  # notebooks for training/eval
+├── frontend/
+│   ├── public/               # Static assets & screenshots
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Auth/         # LoginForm, SignUpForm, AuthPage, WelcomeSetup
+│   │   │   ├── Chat/         # ChatInterface, InputBox, MessageBubble, MessageList
+│   │   │   ├── Header/       # WelcomeHeader
+│   │   │   └── Sidebar/      # Sidebar, ConversationList, UserProfile
+│   │   ├── hooks/            # useAuth.js, useConversations.js
+│   │   ├── services/         # api.js, supabase.js
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   ├── App.css
+│   │   └── index.css
+│   ├── package.json
+│   ├── vite.config.js
+│   ├── tailwind.config.js
+│   ├── postcss.config.js
+│   └── eslint.config.js
+├── backend/
+│   ├── main.py               # FastAPI app, endpoints (/api/ask, /api/conversations, /api/messages)
+│   ├── requirements.txt       # Python dependencies (torch, transformers, PEFT, FAISS, etc.)
+│   ├── adapter_model.safetensors  # LoRA-adapted BERT reader weights
+│   ├── tokenizer.json        # BERT tokenizer config
+│   ├── tokenizer_config.json
+│   ├── vocab.txt
+│   ├── special_tokens_map.json
+│   └── adapter_config.json   # LoRA adapter config
+├── database/
+│   └── schema.sql            # SQL schema for user, conversation, message tables
+├── Entrainement-validation-ODQA/
+│   ├── Bertqa-finetuned.ipynb      # BERT reader fine-tuning (LoRA)
+│   ├── models-evaluation.ipynb      # Evaluation metrics
+│   ├── retreiver-eval.ipynb         # Retriever (DPR) evaluation
+│   └── retrival final.ipynb         # Final retrieval system setup
+├── question_chat.json        # Sample Q&A data / config
+├── eslint.config.js
+├── postcss.config.js
+├── tailwind.config.js
+├── vite.config.js
+├── package.json
+├── README.md                 # This file
+└── .gitignore
 ```
+
+**Key files:**
+- `backend/main.py` — FastAPI server with DPR retriever, BERT reader, conversation management
+- `backend/adapter_model.safetensors` — LoRA-adapted BERT weights for answer extraction
+- `frontend/src/App.jsx` — React root component
+- `database/schema.sql` — Database initialization script
 
 ## Quickstart
 
