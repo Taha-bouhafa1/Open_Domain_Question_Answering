@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "frontend",
   "private": true,
   "version": "0.0.0",
@@ -32,3 +33,13 @@
     "vite": "^7.2.4"
   }
 }
+=======
+  "name": "querymind",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd backend && python main.py",
+    "dev:frontend": "cd frontend && npm run dev",
+    "install:all": "cd backend && pip install -r requirements.txt && cd ../frontend && npm install"
+  }
+}
+>>>>>>> f41983f ( my first commit)

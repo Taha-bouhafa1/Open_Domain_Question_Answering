@@ -1,0 +1,66 @@
+{
+  "question": " when was the latest olympiad at france ",
+  "answer": "2016",
+  "confidence_logit": 10.05
+}
+{
+  "question": " when was  olympiad at france ",
+  "answer": "1936",
+  "confidence_logit": 12.21
+}
+{
+  "question": " When did the first man land on the moon? ",
+  "answer": "july 21, 1969",
+  "confidence_logit": 13.09
+}
+{
+  "question": "Where is the headquarters of the United Nations located? ",
+  "answer": "new york city",
+  "confidence_logit": 11.74
+}
+{
+  "question": "How many elements are in the periodic table? ",
+  "answer": "118",
+  "confidence_logit": 11.36
+}
+{
+  "question": " Who was the longest-reigning king or queen of the UK? ",
+  "answer": "queen elizabeth ii",
+  "confidence_logit": 1.49
+}
+{
+  "question": " when was the novel Animal Farm written?  ",
+  "answer": "17 august 1945",
+  "confidence_logit": -1.21
+}
+
+{
+  "question": " Who was the longest-reigning king or queen of the UK? ",
+  "answer": "queen elizabeth ii",
+  "confidence_logit": 1.49
+}
+{
+  "question": " When was the Eiffel Tower built? ",
+  "answer": "1889",
+  "confidence_logit": -4.47
+}
+{
+  "question": " Who was the leader of the Nazis? ",
+  "answer": "adolf hitler",
+  "confidence_logit": -0.88
+}
+{
+  "question": " When was the Berlin Wall built? ",
+  "answer": "13 august 1961",
+  "confidence_logit": -2.71
+}
+{
+  "question": " When did France colonize Morocco? ",
+  "answer": "30 march 1912",
+  "confidence_logit": -3.59
+}
+{
+  "question": " Who is the founder of facebook ",
+  "answer": "mark zuckerberg",
+  "confidence_logit": 1.11
+}
