@@ -28,7 +28,7 @@ ODQA answers natural-language questions by retrieving relevant passages from a l
 - FAISS for efficient nearest-neighbor search over passage embeddings
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Taha-bouhafa1/Open_Domain_Question_Answering/main/dpr.png" alt="DPR Retriever" width="700" />
+  <img src="https://raw.githubusercontent.com/Taha-bouhafa1/Open_Domain_Question_Answering/main/dpr.png" alt="DPR Retriever" width="400" />
 </p>
 
 ### Reader (BERT + LoRA)
