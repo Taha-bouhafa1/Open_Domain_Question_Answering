@@ -1,10 +1,4 @@
 <h1 align="center">
-	<img
-		src="./frontend/public/odqa.png"
-		alt="ODQA Logo"
-		width="60"
-		style="vertical-align: middle; margin-right: 12px;"
-	/>
 	ODQA - Open Domain Question Answering
 </h1>
 
@@ -16,7 +10,7 @@
 	<img src="https://img.shields.io/badge/License-MIT-grey" />
 </p>
 
-An intelligent question-answering system that retrieves relevant documents and generates accurate answers from a large knowledge base. This project combines Dense Passage Retrieval (DPR) for fast, accurate retrieval with a LoRA-fine-tuned BERT reader (`bert_reader`) for answer extraction.
+An intelligent question-answering system that retrieves relevant documents (for example, Wikipedia) and generates accurate answers from those sources. This project combines Dense Passage Retrieval (DPR) for fast, accurate retrieval with a LoRA-fine-tuned BERT reader (`bert_reader`) for answer extraction.
 
 ## Project Overview
 
@@ -28,7 +22,9 @@ ODQA is a full-stack application that allows users to ask questions and receive 
 - **Python backend** (FastAPI/Flask) serving the model and retrieval APIs
 
 <p align="center">
-	<img src="./frontend/public/odqa.png" alt="ODQA System" width="900" />
+	<img src="./frontend/public/odqa.png" alt="ODQA System screenshot" width="900" />
+	<br/>
+	<em>System overview: retrieval + reader pipeline</em>
 </p>
 
 ### BERT Reader (LoRA)
