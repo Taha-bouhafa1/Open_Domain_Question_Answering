@@ -174,12 +174,15 @@ Training and evaluation notebooks are in `Entrainement-validation-ODQA/`.
 
 ```bibtex
 @misc{bouhafa2025odqa,
-	author       = {Taha Bouhafa},
-	title        = {Open Domain Question Answering (ODQA)},
-	year         = {2025},
-	howpublished = {\url{https://github.com/Taha-bouhafa1/Open_Domain_Question_Answering}},
-	note         = {GitHub repository}
+  author       = {Taha Bouhafa},
+  title        = {ODQA: Open Domain Question Answering System},
+  year         = {2025},
+  institution  = {Abdelmalek Essaadi University, National School of Applied Sciences of Tétouan},
+  supervisor   = {Prof. Belcaid Anass},
+  howpublished = {\url{https://github.com/Taha-bouhafa1/Open_Domain_Question_Answering}},
+  note         = {Natural Language Processing Project}
 }
+
 ```
 
 ## License
